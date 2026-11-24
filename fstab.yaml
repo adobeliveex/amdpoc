@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p130360-e1272151.adobeaemcloud.com/bin/franklin.delivery/adobe-rnd/aem-block-collection-xwalk/main"
+    url: "https://author-p46827-e1901641.adobeaemcloud.com/bin/franklin.delivery/adobeliveex/amdpoc/main"
     type: "markup"
     suffix: ".html"
