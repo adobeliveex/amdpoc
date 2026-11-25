@@ -1,0 +1,161 @@
+/* source: amd.com .columns.amd-flex-align-stretch > article.card (teaser cards) */
+.cards-bordered {
+  margin-bottom: 56px;
+}
+
+.cards-bordered > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px 34px;
+}
+
+.cards-bordered > ul > li {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 24%);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.cards-bordered > ul > li:hover,
+.cards-bordered > ul > li:has(a:focus-visible) {
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 24%);
+}
+
+/* whole card activates its primary link (see cards-bordered.js) */
+.cards-bordered > ul > li.cards-bordered-linked {
+  cursor: pointer;
+}
+
+/* image */
+.cards-bordered .cards-bordered-card-image {
+  line-height: 0;
+}
+
+.cards-bordered .cards-bordered-card-image p {
+  margin: 0;
+}
+
+.cards-bordered .cards-bordered-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* body */
+.cards-bordered .cards-bordered-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.cards-bordered .cards-bordered-card-body h3 {
+  margin: 0 0 10px;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.cards-bordered .cards-bordered-card-body h3 a:any-link {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cards-bordered .cards-bordered-card-body h3 a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.cards-bordered .cards-bordered-card-body > p {
+  flex: 1 1 auto;
+  margin: 0 0 10px;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* CTA link with chevron */
+.cards-bordered .cards-bordered-card-body > p.cards-bordered-cta {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  margin: 0;
+}
+
+main .cards-bordered .cards-bordered-cta a.button:any-link,
+main .cards-bordered .cards-bordered-cta a:any-link {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--link-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+main .cards-bordered .cards-bordered-cta a.button:hover,
+main .cards-bordered .cards-bordered-cta a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.cards-bordered .cards-bordered-cta a::after {
+  content: '';
+  display: inline-block;
+  width: 8.75px;
+  height: 14px;
+  margin-left: 0.25em;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M278.6 256 256 278.6l-160 160-22.6 22.7L28.1 416l22.6-22.6L188.1 256 50.7 118.6 28.1 96l45.3-45.3L96 73.4l160 160z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* external CTA (non-amd.com host): up-right-from-square icon, 14x14 on source */
+.cards-bordered .cards-bordered-cta a.cards-bordered-external::after {
+  width: 14px;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M320 0h-32v64h114.7L201.4 265.4 178.7 288l45.3 45.3 22.6-22.6L448 109.3V224h64V0zM32 32H0v480h480V288h-64v160H64V96h160V32z'/%3E%3C/svg%3E");
+}
+
+/* source adds extra bottom padding under image and description below 576px */
+@media (width < 576px) {
+  .cards-bordered .cards-bordered-card-image img {
+    padding-bottom: 10px;
+  }
+
+  .cards-bordered .cards-bordered-card-body > p:not(.cards-bordered-cta) {
+    padding-bottom: 6px;
+  }
+}
+
+/* grid: bootstrap row-cols-md-* switches at 768px on source */
+@media (width >= 768px) {
+  .cards-bordered.cards-bordered-2-up > ul,
+  .cards-bordered.cards-bordered-4-up > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-bordered.cards-bordered-3-up > ul,
+  .cards-bordered.cards-bordered-thirds > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* image cards run 4-up; text-only sets of four stay 2x2 */
+  .cards-bordered.cards-bordered-4-up:not(.cards-bordered-thirds):has(.cards-bordered-card-image) > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

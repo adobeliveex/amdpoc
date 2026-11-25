@@ -1,0 +1,103 @@
+/* columns-link-lists: values from source computed styles (amd.com/en/developer) */
+.columns-link-lists {
+  color: #000;
+}
+
+.columns-link-lists > .columns-link-lists-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-link-lists .columns-link-lists-col {
+  box-sizing: border-box;
+}
+
+.columns-link-lists .columns-link-lists-col-inner {
+  padding: 26px 34px;
+}
+
+.columns-link-lists .columns-link-lists-col-inner > :first-child {
+  margin-top: 0;
+}
+
+.columns-link-lists .columns-link-lists-col h6 {
+  margin: 0 0 16px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #000;
+}
+
+.columns-link-lists .columns-link-lists-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.columns-link-lists .columns-link-lists-list > li {
+  margin: 0 0 10px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.columns-link-lists .columns-link-lists-list a:any-link {
+  color: #0051c6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.columns-link-lists .columns-link-lists-list a:hover {
+  color: #0051c6;
+  text-decoration: underline;
+}
+
+/* angle-right chevron (replaces source Font Awesome icon) */
+.columns-link-lists .columns-link-lists-list a::after {
+  content: '';
+  display: inline-block;
+  width: 0.625em;
+  height: 1em;
+  margin-left: 10px;
+  background-color: currentcolor;
+  vertical-align: -0.125em;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M105 51l205 205-205 205-45-45 160-160L60 96z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (width >= 900px) {
+  .columns-link-lists > .columns-link-lists-row {
+    flex-flow: row wrap;
+    align-items: stretch;
+    margin: 0 -17px;
+  }
+
+  .columns-link-lists .columns-link-lists-col {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 0 17px;
+  }
+
+  /* fixed equal widths per column count (source: .row-cols-md-N > *) */
+  .columns-link-lists.columns-link-lists-2-cols .columns-link-lists-col {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .columns-link-lists.columns-link-lists-3-cols .columns-link-lists-col {
+    flex: 0 0 auto;
+    width: 33.3333%;
+  }
+
+  .columns-link-lists.columns-link-lists-4-cols .columns-link-lists-col {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .columns-link-lists .columns-link-lists-col + .columns-link-lists-col {
+    border-left: 1px solid #e1e1e2;
+  }
+
+  .columns-link-lists .columns-link-lists-list > li {
+    font-size: 15.62px;
+  }
+}

@@ -133,6 +133,57 @@ export function decorateButtons(element) {
 }
 
 /**
+ * "On this page" anchor bars (dark-gradient sections holding a list of #links):
+ * the label paragraph becomes a toggle for the collapsed (< 1200px) menu, and the
+ * link of the section currently in view is marked active while scrolling.
+ * @param {Element} main The main element
+ */
+function decorateAnchorBars(main) {
+  main.querySelectorAll('.section.dark-gradient').forEach((section, i) => {
+    const wrapper = section.querySelector('.default-content-wrapper');
+    const list = wrapper?.querySelector(':scope > ul');
+    if (!list) return;
+    const links = [...list.querySelectorAll('a[href^="#"]')];
+    if (!links.length) return;
+
+    list.id = list.id || `anchor-bar-${i}`;
+    const label = wrapper.querySelector(':scope > p:first-child');
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'anchor-bar-toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', list.id);
+    toggle.textContent = label?.textContent.trim() || 'On this page';
+    if (label) label.replaceWith(toggle);
+    else wrapper.prepend(toggle);
+
+    const setOpen = (open) => toggle.setAttribute('aria-expanded', String(open));
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    links.forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('click', (e) => { if (!section.contains(e.target)) setOpen(false); });
+
+    const targets = links
+      .map((a) => ({ a, el: document.getElementById(decodeURIComponent(a.hash.slice(1))) }))
+      .filter((t) => t.el);
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const offset = section.getBoundingClientRect().bottom + 40;
+      let current = null;
+      targets.forEach((t) => { if (t.el.getBoundingClientRect().top <= offset) current = t; });
+      targets.forEach((t) => t.a.classList.toggle('active', t === current));
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    update();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -143,6 +194,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateAnchorBars(main);
   decorateBlocks(main);
   // add aria-label to links
   a11yLinks(main);
