@@ -1,0 +1,238 @@
+/* driver-selector: AMD "Search or Browse Drivers" panel (values from source computed styles) */
+.driver-selector {
+  --driver-selector-control-font-size: clamp(14px, 12.576px + 0.238vw, 16px);
+  --driver-selector-control-border: 1px solid #ced4da;
+  --driver-selector-control-color: #212529;
+  --driver-selector-focus-border: #86b7fe;
+  --driver-selector-focus-shadow: 0 0 0 4px rgb(13 110 253 / 25%);
+
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 26px 34px;
+  background-color: #f1f1f2;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.driver-selector [hidden] {
+  display: none !important;
+}
+
+/* validation alert (bootstrap alert-light on the source) */
+.driver-selector .driver-selector-alert {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 0 16px;
+  padding: 16px;
+  border: 1px solid #fdfdfe;
+  border-radius: 4px;
+  background-color: #fefefe;
+  color: #636464;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.driver-selector .driver-selector-alert-icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24v112c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zm-32 224a32 32 0 1 1 64 0 32 32 0 1 1-64 0z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* search row: [icon][input][Search] inside a 1px black, 2px-radius frame */
+.driver-selector .driver-selector-search {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  margin: 0 0 56px;
+  border: 1px solid var(--text-color);
+  border-radius: 2px;
+}
+
+.driver-selector .driver-selector-search-field {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.driver-selector .driver-selector-search-icon {
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  align-items: center;
+  padding: 6px 12px;
+  border: var(--driver-selector-control-border);
+  border-radius: 4px 0 0 4px;
+  background-color: #e9ecef;
+  color: var(--driver-selector-control-color);
+  pointer-events: none;
+}
+
+.driver-selector .driver-selector-search-icon::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7l126.6 126.7c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.driver-selector .driver-selector-search-input {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  height: 46px;
+  margin: 0 0 0 -1px;
+  padding: 6px 12px;
+  border: var(--driver-selector-control-border);
+  border-radius: 0;
+  background-color: #fff;
+  color: var(--driver-selector-control-color);
+  font-family: inherit;
+  font-size: var(--driver-selector-control-font-size);
+  font-weight: 400;
+  line-height: 1.5;
+  appearance: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.driver-selector .driver-selector-search-input::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.driver-selector .driver-selector-search-input:focus {
+  position: relative;
+  z-index: 1;
+  border-color: var(--driver-selector-focus-border);
+  outline: 0;
+  box-shadow: var(--driver-selector-focus-shadow);
+}
+
+.driver-selector .driver-selector-search-button {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  height: 46px;
+  margin: 0 0 0 -1px;
+  padding: 10px 34px;
+  border: 1px solid var(--text-color);
+  border-radius: 0 2px 2px 0;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.driver-selector .driver-selector-search-button:hover,
+.driver-selector .driver-selector-search-button:focus {
+  border-color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.driver-selector .driver-selector-search-button:focus {
+  z-index: 2;
+  outline: 0;
+  box-shadow: var(--driver-selector-focus-shadow);
+}
+
+/* cascading levels: label + select, stacked */
+.driver-selector .driver-selector-browse,
+.driver-selector .driver-selector-levels,
+.driver-selector .driver-selector-level {
+  display: block;
+}
+
+.driver-selector .driver-selector-label {
+  display: inline-block;
+  margin: 0 0 6px;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.driver-selector .driver-selector-select {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 0 0 26px;
+  padding: 6px 36px 6px 12px;
+  border: var(--driver-selector-control-border);
+  border-radius: 4px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px 12px;
+  color: var(--driver-selector-control-color);
+  font-family: inherit;
+  font-size: var(--driver-selector-control-font-size);
+  font-weight: 400;
+  line-height: 1.5;
+  appearance: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* open level: listbox (size 8) without the chevron */
+.driver-selector .driver-selector-select[size]:not([size="1"]) {
+  padding-right: 12px;
+  background-image: none;
+}
+
+.driver-selector .driver-selector-select:focus {
+  border-color: var(--driver-selector-focus-border);
+  outline: 0;
+  box-shadow: var(--driver-selector-focus-shadow);
+}
+
+.driver-selector .driver-selector-level.driver-selector-loading .driver-selector-select {
+  cursor: progress;
+}
+
+/* outlined Submit (bootstrap btn-outline-secondary as themed on the source) */
+.driver-selector .driver-selector-submit {
+  display: inline-flex;
+  margin: 0 0 26px;
+  padding: 10px 34px;
+  border: 1px solid var(--text-color);
+  border-radius: 2px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.driver-selector .driver-selector-submit:hover,
+.driver-selector .driver-selector-submit:focus {
+  border-color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+.driver-selector .driver-selector-submit:focus {
+  outline: 0;
+  box-shadow: 0 0 0 4px rgb(108 117 125 / 50%);
+}
+
+/* search row hidden on narrow mobile (source: below 576px) */
+@media (width < 576px) {
+  .driver-selector .driver-selector-search {
+    display: none;
+  }
+}

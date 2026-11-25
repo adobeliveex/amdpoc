@@ -54,31 +54,42 @@ export default function decorate(block) {
     });
     if (!li.querySelector('.cards-bordered-card-image')) li.classList.add('cards-bordered-text-only');
 
-    // trailing standalone link paragraph is the card CTA
+    // trailing standalone link paragraphs are the card CTA links (stacked)
     const body = li.querySelector('.cards-bordered-card-body');
     if (body) {
-      const last = body.lastElementChild;
-      const link = last?.querySelector('a');
-      if (last?.tagName === 'P' && link && last.textContent.trim() === link.textContent.trim()
-        && body.children.length > 1) {
-        last.classList.add('cards-bordered-cta');
+      let el = body.lastElementChild;
+      const ctas = [];
+      while (el && el.tagName === 'P' && el.querySelectorAll('a').length === 1
+        && el.textContent.trim() === el.querySelector('a').textContent.trim()) {
+        ctas.unshift(el);
+        el = el.previousElementSibling;
+      }
+      if (ctas.length && body.children.length > ctas.length) {
+        ctas.forEach((p) => p.classList.add('cards-bordered-cta'));
+        // heading + link list, no description paragraph
+        if (!body.querySelector(':scope > p:not(.cards-bordered-cta)')) {
+          li.classList.add('cards-bordered-links-only');
+        }
       }
     }
+    const ctaLinks = [...li.querySelectorAll('.cards-bordered-cta a[href]')];
+    const singleCta = ctaLinks.length === 1 ? ctaLinks[0] : null;
 
-    // as on source: only cards whose CTA is external open in a new tab
-    // (title + CTA); the external CTA gets the external-link icon
-    const cta = li.querySelector('.cards-bordered-cta a[href]');
-    if (cta && isExternal(cta)) {
-      cta.classList.add('cards-bordered-external');
+    // as on source: only cards whose single CTA is external open in a new tab
+    // (title + CTA); the external CTA gets the external-link icon.
+    // Link-list cards (several CTAs) keep plain chevron links.
+    if (singleCta && isExternal(singleCta)) {
+      singleCta.classList.add('cards-bordered-external');
       li.querySelectorAll('a[href]').forEach((a) => {
         a.target = '_blank';
         a.rel = 'noopener';
       });
     }
 
-    // primary link: title link, else CTA link
+    // primary link: title link, else the CTA link when it is the only one
+    // (cards listing several links are not clickable as a whole on source)
     const primary = li.querySelector('h1 a[href], h2 a[href], h3 a[href], h4 a[href], h5 a[href], h6 a[href]')
-      || li.querySelector('.cards-bordered-cta a[href]');
+      || singleCta;
     if (primary) {
       primary.classList.add('cards-bordered-primary');
       li.classList.add('cards-bordered-linked');

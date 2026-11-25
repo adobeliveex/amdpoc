@@ -55,11 +55,40 @@ var CustomImportScript = (() => {
     const content = element.querySelector(".hero-content-background") || element.querySelector(".cmp-container__content");
     const textFrag = document.createDocumentFragment();
     if (content) {
+      const breadcrumb = content.querySelector('.cmp-breadcrumb, nav[class*="breadcrumb"]');
+      let breadcrumbList = null;
+      if (breadcrumb) {
+        breadcrumbList = document.createElement("ul");
+        breadcrumb.querySelectorAll("a[href]").forEach((link) => {
+          let label = link.textContent.replace(/\s+/g, " ").trim();
+          if (!label) {
+            const titled = link.querySelector("[title]");
+            label = titled && titled.getAttribute("title") || link.getAttribute("aria-label") || link.getAttribute("title") || "";
+          }
+          if (!label) return;
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = link.getAttribute("href");
+          a.textContent = label;
+          li.appendChild(a);
+          breadcrumbList.appendChild(li);
+        });
+        const active = breadcrumb.querySelector('.cmp-breadcrumb__item--active, [aria-current="page"]');
+        const activeText = active ? active.textContent.replace(/\s+/g, " ").trim() : "";
+        if (activeText && !active.querySelector("a[href]")) {
+          const li = document.createElement("li");
+          li.textContent = activeText;
+          breadcrumbList.appendChild(li);
+        }
+        if (!breadcrumbList.children.length) breadcrumbList = null;
+      }
+      const isInBreadcrumb = (node) => !!(breadcrumb && breadcrumb.contains(node));
       const heading = content.querySelector("h1, h2");
-      const subtitle = content.querySelector("p.sub-title, p.title, p");
-      const ctas = Array.from(content.querySelectorAll("a[href]"));
-      if (heading || subtitle || ctas.length) {
+      const subtitle = Array.from(content.querySelectorAll("p.sub-title, p.title, p")).find((p) => !isInBreadcrumb(p)) || null;
+      const ctas = Array.from(content.querySelectorAll("a[href]")).filter((a) => !isInBreadcrumb(a));
+      if (breadcrumbList || heading || subtitle || ctas.length) {
         textFrag.appendChild(document.createComment(" field:text "));
+        if (breadcrumbList) textFrag.appendChild(breadcrumbList);
         if (heading) textFrag.appendChild(heading);
         if (subtitle) {
           const p = document.createElement("p");
@@ -218,7 +247,8 @@ var CustomImportScript = (() => {
         "#feedback-container",
         ".feedback-button-wrapper",
         "amd-modal.amd-modal-feedback",
-        // UserWay accessibility widget and reading guides
+        // UserWay accessibility widget, skip-links bar and reading guides
+        ".uw-sl",
         ".uwy",
         ".userway_buttons_wrapper",
         '[class*="uw-s10-"]',
@@ -232,6 +262,12 @@ var CustomImportScript = (() => {
         if (!menu || !menu.querySelector("li, a")) li.remove();
       });
       element.querySelectorAll(".fixed-parallax > .cmp-container > .cmp-container__image").forEach((el) => el.remove());
+      element.querySelectorAll("img, source").forEach((node) => {
+        const urls = [node.getAttribute("src"), node.getAttribute("srcset"), node.getAttribute("data-src")].filter(Boolean).join(" ");
+        if (!/\/backgrounds\/dividers\/|gradient-divider\./i.test(urls)) return;
+        const component = node.closest(".image.aem-GridColumn") || node.closest(".cmp-image") || node.closest("picture") || node;
+        component.remove();
+      });
       element.querySelectorAll(".experiencefragment").forEach((xf) => {
         if (isEmptyElement(xf)) xf.remove();
       });
@@ -250,6 +286,9 @@ var CustomImportScript = (() => {
         "iframe.ot-text-resize",
         "iframe.amd-feedback-iframe"
       ]);
+      element.querySelectorAll("div.divider").forEach((el) => {
+        if (el.isConnected && isEmptyElement(el)) el.remove();
+      });
       element.querySelectorAll("*").forEach((el) => {
         [...el.attributes].forEach((attr) => {
           const n = attr.name;
@@ -377,7 +416,7 @@ var CustomImportScript = (() => {
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(1)",
           "#container-405663470e"
         ],
-        "style": "centered",
+        "style": "centered, weave",
         "blocks": [],
         "defaultContent": [
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(1) .cmp-text"
@@ -389,7 +428,7 @@ var CustomImportScript = (() => {
         "selector": [
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(2) .container-padding-none .container-lg > .aem-Grid > div:nth-child(-n+3)"
         ],
-        "style": null,
+        "style": "weave",
         "blocks": [
           "cards-bordered"
         ],
@@ -403,7 +442,7 @@ var CustomImportScript = (() => {
         "selector": [
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(2) .container-padding-none .container-lg > .aem-Grid > div:nth-child(5)"
         ],
-        "style": "split",
+        "style": "split, weave",
         "blocks": [
           "cards-bordered"
         ],
@@ -418,7 +457,7 @@ var CustomImportScript = (() => {
         "selector": [
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(2) .container-padding-none .container-lg > .aem-Grid > div:nth-child(7)"
         ],
-        "style": "split-reverse",
+        "style": "split-reverse, weave",
         "blocks": [
           "cards-bordered"
         ],
@@ -434,7 +473,7 @@ var CustomImportScript = (() => {
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(3)",
           "#container-0c8cad2443"
         ],
-        "style": null,
+        "style": "weave",
         "blocks": [
           "columns-link-lists"
         ],
@@ -449,7 +488,7 @@ var CustomImportScript = (() => {
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(4)",
           "#container-81e8bc4012"
         ],
-        "style": null,
+        "style": "weave",
         "blocks": [
           "cards-bordered"
         ],
@@ -464,7 +503,7 @@ var CustomImportScript = (() => {
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(5)",
           "#container-049bc227c1"
         ],
-        "style": "centered",
+        "style": "centered, weave",
         "blocks": [],
         "defaultContent": [
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(5) > .cmp-container > .cmp-container__content"
@@ -477,7 +516,7 @@ var CustomImportScript = (() => {
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(6)",
           "#container-b54a7fd261"
         ],
-        "style": "centered",
+        "style": "centered, weave",
         "blocks": [],
         "defaultContent": [
           ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(6) > .cmp-container > .cmp-container__content"

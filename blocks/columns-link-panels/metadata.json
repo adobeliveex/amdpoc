@@ -1,0 +1,29 @@
+{
+  "variantName": "columns-link-panels",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two side-by-side flat white panel boxes on a light-grey section, each a bold heading over a stacked list of plain blue text links (no chevrons, no dividers).",
+  "contentPattern": "One row, one cell per column; additional rows must keep the same cell count. Each cell: heading followed by links (one per paragraph or list item).",
+  "options": [],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.amd.com/en/support/download/drivers.html",
+  "structure": {
+    "rows": [
+      [
+        "Column 1 content",
+        "Column 2 content"
+      ]
+    ],
+    "note": "One row, one cell per column; additional rows must keep the same cell count.",
+    "model": "columns: columns, rows"
+  },
+  "usage": {
+    "description": "Side-by-side white panels, each with a heading and a stacked list of resource links.",
+    "pagesUsing": [
+      "/en/support/download/drivers"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-25"
+  },
+  "reuseGuidance": "Use for resource link directories shown as boxed panels. Put each link in its own paragraph or list item. Use columns-link-lists for divider-separated columns with chevron links."
+}

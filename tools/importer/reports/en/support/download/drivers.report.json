@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.amd.com/en/support/download/drivers.html",
+  "path": "en/support/download/drivers",
+  "timestamp": "2026-11-25T17:00:19.485Z",
+  "title": "Drivers and Support for Processors and Graphics",
+  "template": "download",
+  "blocks": [
+    "hero-banner",
+    "columns-download",
+    "driver-selector",
+    "columns-link-panels",
+    "cards-bordered"
+  ],
+  "importScript": "e5a1e5d083d1"
+}
