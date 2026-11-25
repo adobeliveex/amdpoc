@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d.html",
+  "path": "en/support/downloads/drivers/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d",
+  "timestamp": "2026-11-25T22:33:48.939Z",
+  "title": "AMD Radeon™ AI PRO R9600D Drivers and Downloads | Latest Version",
+  "template": "driver-product",
+  "blocks": [
+    "hero-banner",
+    "note",
+    "accordion-drivers",
+    "accordion-specs"
+  ],
+  "fragments": [
+    "en/support/downloads/drivers/fragments/os-update-note"
+  ],
+  "importScript": "303e6dd2566e"
+}

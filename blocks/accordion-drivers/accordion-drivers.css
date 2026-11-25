@@ -1,0 +1,323 @@
+/* Accordion Drivers: values measured from amd.com #amd_support_driver_list .download-accordion */
+.accordion-drivers {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* OS items: boxed rows sharing one border */
+.accordion-drivers .accordion-drivers-item {
+  border: 1px solid #e1e1e2;
+  background-color: var(--background-color);
+}
+
+.accordion-drivers .accordion-drivers-item + .accordion-drivers-item {
+  border-top: 0;
+}
+
+.accordion-drivers .accordion-drivers-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.accordion-drivers .accordion-drivers-item:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* h2 wrapper: semantic only, no visual change */
+.accordion-drivers h2.accordion-drivers-item-header {
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+/* OS header button (overrides the global outlined button) */
+.accordion-drivers .accordion-drivers-item-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s;
+}
+
+.accordion-drivers .accordion-drivers-item-button[aria-expanded='true'] {
+  border-bottom: 1px solid #e1e1e2;
+}
+
+.accordion-drivers .accordion-drivers-item-button:focus {
+  border-color: #e1e1e2;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.accordion-drivers .accordion-drivers-item-button:hover {
+  z-index: 2;
+  border-color: #e1e1e2;
+  background-color: #e1e1e2;
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.accordion-drivers .accordion-drivers-item-button:focus-visible {
+  z-index: 3;
+  outline: 3px solid var(--text-color);
+}
+
+.accordion-drivers .accordion-drivers-item:first-child .accordion-drivers-item-button {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.accordion-drivers .accordion-drivers-item:last-child .accordion-drivers-item-button[aria-expanded='false'] {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.accordion-drivers .accordion-drivers-item-icon {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000FF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.accordion-drivers .accordion-drivers-item-title {
+  min-width: 0;
+  padding-right: 16px;
+}
+
+.accordion-drivers .accordion-drivers-item-button[aria-expanded='true'] .accordion-drivers-item-icon {
+  transform: rotate(-180deg);
+}
+
+/* OS body */
+.accordion-drivers .accordion-drivers-item-body {
+  padding: 16px 20px;
+}
+
+.accordion-drivers .accordion-drivers-item-body[hidden] {
+  display: none;
+}
+
+/* category: H3 heading + stacked cards */
+.accordion-drivers .accordion-drivers-category {
+  padding-bottom: 16px;
+}
+
+.accordion-drivers h3.accordion-drivers-category-title {
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.accordion-drivers .accordion-drivers-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+/* driver card */
+.accordion-drivers .accordion-drivers-card {
+  padding: 26px 34px;
+  background-color: #f1f1f2;
+}
+
+.accordion-drivers .accordion-drivers-card-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 34px;
+  align-items: start;
+}
+
+.accordion-drivers h4.accordion-drivers-card-name {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.accordion-drivers .accordion-drivers-meta {
+  display: contents;
+}
+
+.accordion-drivers .accordion-drivers-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-drivers .accordion-drivers-meta-label {
+  font-weight: 700;
+}
+
+.accordion-drivers .accordion-drivers-meta-value {
+  margin: 0 0 26px;
+}
+
+.accordion-drivers .accordion-drivers-meta-value:empty {
+  margin: 0;
+}
+
+/* Download* button: outlined black, fills on hover */
+.accordion-drivers .accordion-drivers-download {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 0 26px;
+  padding: 1px;
+}
+
+.accordion-drivers .accordion-drivers-download a.accordion-drivers-download-button:any-link {
+  display: block;
+  flex: 0 1 auto;
+  margin: 0;
+  padding: 16px 34px;
+  border: 1px solid var(--text-color);
+  border-radius: 2px;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+
+  /* source is fluid: 14px up to ~576px, 15.62px @1280, 16px from 1440px */
+  font-size: clamp(14px, calc(12.576px + 0.238vw), 16px);
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.accordion-drivers .accordion-drivers-download a.accordion-drivers-download-button:hover,
+.accordion-drivers .accordion-drivers-download a.accordion-drivers-download-button:focus {
+  border-color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
+  text-decoration: none;
+}
+
+.accordion-drivers .accordion-drivers-download a.accordion-drivers-download-button sup {
+  position: relative;
+  top: -0.5em;
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+.accordion-drivers .accordion-drivers-download a.accordion-drivers-download-button::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+
+  /* vertical margins keep a wrapped icon-only line ~1.5em tall (stays inside the strut) */
+  margin: 0.25em 0 0.2em 0.28em;
+  background-color: currentcolor;
+  vertical-align: -0.125em;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M288 32v274.7l73.4-73.4 22.6-22.6 45.3 45.3-22.6 22.6-128 128-22.7 22.6-22.6-22.6-128-128-22.7-22.6 45.3-45.3 22.6 22.6 73.4 73.4V32h64zM64 352v96h384v-96h64v160H0V352h64z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* nested "Driver Details" toggle */
+.accordion-drivers .accordion-drivers-details {
+  grid-column: 1 / -1;
+}
+
+.accordion-drivers .accordion-drivers-details-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--link-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-drivers .accordion-drivers-details-toggle:hover,
+.accordion-drivers .accordion-drivers-details-toggle:focus {
+  border: 0;
+  background-color: transparent;
+  color: var(--link-color);
+}
+
+.accordion-drivers .accordion-drivers-details-toggle:hover .accordion-drivers-details-label {
+  text-decoration: underline;
+}
+
+.accordion-drivers .accordion-drivers-details-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 429.3l22.6-22.6 192-192L493.3 192 448 146.7l-22.6 22.6L256 338.7 86.6 169.4 64 146.7 18.7 192l22.6 22.6 192 192 22.7 22.7z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* open details: white card with release-notes links */
+.accordion-drivers .accordion-drivers-details-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid rgb(0 0 0 / 12.5%);
+  border-radius: 4px;
+  background-color: var(--background-color);
+}
+
+.accordion-drivers .accordion-drivers-details-panel[hidden] {
+  display: none;
+}
+
+.accordion-drivers .accordion-drivers-details-panel p {
+  margin: 0 0 26px;
+}
+
+.accordion-drivers .accordion-drivers-details-panel a:any-link {
+  color: var(--link-color);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.accordion-drivers .accordion-drivers-details-panel a:hover {
+  text-decoration: underline;
+}
+
+@media (width >= 900px) {
+  .accordion-drivers .accordion-drivers-card-summary {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .accordion-drivers .accordion-drivers-download a.accordion-drivers-download-button::after {
+    margin: 0 0 0 0.28em;
+  }
+}

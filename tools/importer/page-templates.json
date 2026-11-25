@@ -279,6 +279,111 @@
           ]
         }
       ]
+    },
+    {
+      "name": "driver-product",
+      "urls": [
+        "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d.html"
+      ],
+      "representativeUrl": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d.html",
+      "description": "AMD per-product driver download page (one per product model)",
+      "blocks": [
+        {
+          "name": "hero-banner",
+          "instances": [
+            ".support-details > .container-parsys > .cmp-container:has(.heroExpressive)"
+          ]
+        },
+        {
+          "name": "note",
+          "instances": [
+            "#amd_support_driver_list .drivers .cmp-toast"
+          ]
+        },
+        {
+          "name": "accordion-drivers",
+          "instances": [
+            "#amd_support_driver_list .download-accordion > .accordion"
+          ]
+        },
+        {
+          "name": "accordion-specs",
+          "instances": [
+            "#amd_support_product_spec ul.product-specs-categories"
+          ]
+        }
+      ],
+      "urlPattern": "/en/support/downloads/drivers.html/*",
+      "sections": [
+        {
+          "id": "s1",
+          "name": "hero",
+          "selector": [
+            ".support-details > .container-parsys:has(.heroExpressive)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-banner"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "s2",
+          "name": "anchor-bar",
+          "selector": [
+            ".support-details > .anchorBar"
+          ],
+          "style": "dark-gradient",
+          "blocks": [],
+          "defaultContent": [
+            ".support-details > .anchorBar nav.navbar"
+          ]
+        },
+        {
+          "id": "s3",
+          "name": "drivers",
+          "selector": [
+            "#amd_support_driver_list"
+          ],
+          "style": "compact",
+          "blocks": [
+            "note",
+            "accordion-drivers"
+          ],
+          "defaultContent": [
+            "#drivers-heading",
+            "#amd_support_driver_list .drivers > div:has(> p, > .cmp-text):not(:has(.cmp-toast))",
+            "#amd_support_driver_list .drivers > div.button"
+          ]
+        },
+        {
+          "id": "s4",
+          "name": "specifications",
+          "selector": [
+            "#amd_support_product_spec"
+          ],
+          "style": "compact",
+          "blocks": [
+            "accordion-specs"
+          ],
+          "defaultContent": [
+            "#specifications-heading"
+          ]
+        },
+        {
+          "id": "s5",
+          "name": "contact",
+          "selector": [
+            "#amd_support_contact"
+          ],
+          "style": "compact",
+          "blocks": [],
+          "defaultContent": [
+            "#contact-heading",
+            "#amd_support_contact a"
+          ]
+        }
+      ]
     }
   ],
   "metadata": {

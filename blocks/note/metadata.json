@@ -1,0 +1,32 @@
+{
+  "variantName": "note",
+  "baseBlock": "note",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Grey box with a coloured left rule, a circle-info icon on the left (CSS mask SVG, no icon font) and a short rich-text paragraph.",
+  "contentPattern": "Single cell of rich text. The option class selects the note type and icon; information is the default when no type class is set. New types: add to NOTE_TYPES in note.js, an icon rule in note.css and an option in _note.json.",
+  "options": [
+    {
+      "class": "information",
+      "label": "Information (default)"
+    }
+  ],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d.html",
+  "structure": {
+    "rows": [
+      [
+        "Text (rich text paragraph(s))"
+      ]
+    ],
+    "model": "note: text, classes (information)"
+  },
+  "usage": {
+    "description": "Informational notice, e.g. the OS-update note shared via the fragment /en/support/downloads/drivers/fragments/os-update-note.",
+    "pagesUsing": [
+      "/en/support/downloads/drivers/fragments/os-update-note"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-25"
+  },
+  "reuseGuidance": "Use for short callouts/notices. Put notes repeated across pages in a fragment and embed with the Fragment block."
+}

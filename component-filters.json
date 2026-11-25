@@ -24,7 +24,28 @@
       "table",
       "text",
       "title",
-      "video"
+      "video",
+      "hero-banner",
+      "cards-bordered",
+      "columns-link-lists",
+      "columns-download",
+      "columns-link-panels",
+      "driver-selector",
+      "accordion-drivers",
+      "accordion-specs",
+      "note"
+    ]
+  },
+  {
+    "id": "accordion-drivers",
+    "components": [
+      "accordion-drivers-item"
+    ]
+  },
+  {
+    "id": "accordion-specs",
+    "components": [
+      "accordion-specs-item"
     ]
   },
   {
