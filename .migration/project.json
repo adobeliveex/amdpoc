@@ -1,0 +1,16 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "amdpoc": {
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
+      "previewOrg": "adobeliveex",
+      "previewSite": "amdpoc",
+      "contentHostUrl": "author-p46827-e1901641.adobeaemcloud.com",
+      "aemSitePath": "/content/amdpoc",
+      "aemAssetsFolderPath": "/content/dam/amdpoc",
+      "aemSiteName": "amdpoc",
+      "aemSiteTitle": "AMD POC",
+      "botProtected": true
+    }
+  }
+}

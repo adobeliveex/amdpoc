@@ -1,0 +1,23 @@
+{
+  "variantName": "hero-banner",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Short full-width photo banner with black left-to-right gradient overlay, left-aligned white H1 and subheading, no CTA.",
+  "contentPattern": "Background image; Title (H1), subheading paragraph, optional CTA",
+  "options": [],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.amd.com/en/developer.html",
+  "structure": {
+    "rows": [
+      [
+        "Background image"
+      ],
+      [
+        "Title (H1), subheading paragraph, optional CTA"
+      ]
+    ],
+    "model": "hero: image, imageAlt, text"
+  },
+  "usage": "Short full-width page-intro banner with a background photo, H1 title and one-line subheading; optional CTA.",
+  "reuseGuidance": "Use at the top of landing/hub pages. For tall marketing heroes with large media or multiple CTAs, use hero instead."
+}

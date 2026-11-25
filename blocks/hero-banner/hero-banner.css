@@ -1,0 +1,152 @@
+/* hero-banner: values measured on https://www.amd.com/en/developer.html (heroExpressive) */
+
+/* full-bleed: the banner spans the viewport, its content is capped at 1600px */
+main > .section > .hero-banner-wrapper {
+  max-width: 100%;
+  padding: 0;
+}
+
+.hero-banner {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #000;
+  color: var(--light-color);
+}
+
+/* left-to-right black gradient overlay (source .bkgGradient) */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgb(0 0 0 / 90%) 2%, rgb(0 0 0 / 0%) 54%, rgb(0 0 0 / 0%) 100%);
+}
+
+/* background image; below 576px the source swaps to a portrait crop that
+   sits on top and fades into black, approximated here with the one image */
+.hero-banner > .hero-banner-media {
+  position: absolute;
+  inset: 0 0 38%;
+  z-index: -2;
+}
+
+.hero-banner > .hero-banner-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0%) 55%, rgb(0 0 0 / 100%) 100%);
+}
+
+.hero-banner > .hero-banner-media > div,
+.hero-banner > .hero-banner-media p,
+.hero-banner > .hero-banner-media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.hero-banner > .hero-banner-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 75% 50%;
+}
+
+/* content: container-lg (max 1600px, 26px / 90px side padding) + hero-content row */
+.hero-banner > .hero-banner-content {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1600px;
+  min-height: 566px;
+  margin: 0 auto;
+  padding: 0 26px 26px;
+  box-sizing: border-box;
+}
+
+.hero-banner > .hero-banner-content > div {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.hero-banner > .hero-banner-content h1 {
+  margin: 0 0 16px;
+  font-family: var(--display-font-family);
+  font-size: clamp(2rem, 1.1692rem + 2.3077vw, 2.6rem);
+  font-weight: 500;
+  line-height: clamp(2.2rem, 1.3692rem + 2.3077vw, 2.8rem);
+  color: var(--light-color);
+  text-wrap: balance;
+  text-shadow: rgb(0 0 0) 0 0 20px, rgb(0 0 0) 0 0 4px, rgb(0 0 0) 0 0 1px;
+}
+
+.hero-banner > .hero-banner-content p:not(.button-container) {
+  margin: 0 0 26px;
+  padding: 0;
+  font-size: 20.32px;
+  font-weight: 500;
+  line-height: 27.2px;
+  color: var(--light-color);
+  text-wrap: balance;
+  text-shadow: rgb(0 0 0) 0 0 20px, rgb(0 0 0) 0 0 4px, rgb(0 0 0) 0 0 1px;
+}
+
+@media (width >= 576px) {
+  .hero-banner > .hero-banner-media {
+    bottom: 0;
+  }
+
+  .hero-banner > .hero-banner-media::after {
+    content: none;
+  }
+
+  .hero-banner > .hero-banner-media img {
+    object-position: 50% 50%;
+  }
+
+  .hero-banner > .hero-banner-content {
+    align-items: center;
+    min-height: 470px;
+    padding-top: 224px;
+  }
+
+  .hero-banner > .hero-banner-content > div {
+    width: calc(66.6667% - 11.3333px);
+  }
+}
+
+@media (width >= 768px) {
+  .hero-banner > .hero-banner-content {
+    min-height: 342px;
+    padding-top: 16px;
+  }
+
+  .hero-banner > .hero-banner-content > div {
+    width: calc(58.3333% - 14.1667px);
+  }
+
+  .hero-banner > .hero-banner-content p:not(.button-container) {
+    padding-bottom: 16px;
+  }
+}
+
+@media (width >= 992px) {
+  .hero-banner > .hero-banner-content {
+    padding-right: 90px;
+    padding-left: 90px;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero-banner > .hero-banner-content {
+    padding-left: 180px;
+  }
+
+  .hero-banner > .hero-banner-content > div {
+    width: calc(50% - 17px);
+  }
+}

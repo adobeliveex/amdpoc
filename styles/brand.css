@@ -1,0 +1,63 @@
+/* AMD brand tokens — extracted from https://www.amd.com/en/developer.html */
+:root {
+  /* colors */
+  --background-color: #fff;
+  --light-color: #f8f9fa;
+  --dark-color: #111112;
+  --dark-color-alt: #1a1a1b;
+  --text-color: #000;
+  --text-muted-color: #212529;
+  --link-color: #0051c6;
+  --link-hover-color: #0a58ca;
+  --accent-color: #00c2de;
+  --border-color: #dee2e6;
+  --overlay-background-color: rgb(0 0 0 / 90%);
+
+  /* fonts */
+  --body-font-family: 'Open Sans', open-sans-fallback, arial, sans-serif;
+  --heading-font-family: 'Open Sans', open-sans-fallback, arial, sans-serif;
+  --display-font-family: klavika, 'Open Sans', open-sans-fallback, arial, sans-serif;
+
+  /* body sizes */
+  --body-font-size-m: 16px;
+  --body-font-size-s: 15.6px;
+  --body-font-size-xs: 14.4px;
+  --body-line-height: 1.5;
+
+  /* heading sizes (mobile) */
+  --heading-font-size-xxl: 32px;
+  --heading-font-size-xl: 24px;
+  --heading-font-size-l: 22px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
+
+  /* spacing */
+  --section-spacing: 56px;
+  --content-max-width: 1600px;
+  --content-padding: 26px;
+
+  /* nav heights (source: 56px below 1200px, 86px from 1200px) */
+  --nav-height: 56px;
+  --breadcrumbs-height: 34px;
+  --header-height: var(--nav-height);
+}
+
+@media (width >= 900px) {
+  :root {
+    --heading-font-size-xxl: 41.6px;
+    --heading-font-size-xl: calc(18.8px + 0.625vw); /* source: 26.8px @1280, 27.8px @1440 */
+    --heading-font-size-l: 23.85px;
+    --heading-font-size-m: 21.57px;
+    --heading-font-size-s: 19.72px;
+    --heading-font-size-xs: 17.63px;
+    --content-padding: 32px;
+  }
+}
+
+@media (width >= 1200px) {
+  :root {
+    --content-padding: 90px;
+    --nav-height: 86px;
+  }
+}

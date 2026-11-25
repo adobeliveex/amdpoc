@@ -1,0 +1,23 @@
+{
+  "variantName": "columns-link-lists",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Three equal columns separated by thin vertical dividers, each a small bold heading over a stacked list of blue chevron links.",
+  "contentPattern": "One row, one cell per column; each cell = small heading + list of links.",
+  "options": [],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.amd.com/en/developer.html",
+  "structure": {
+    "rows": [
+      [
+        "Column 1 content",
+        "Column 2 content",
+        "Column 3 content"
+      ]
+    ],
+    "note": "One row, one cell per column; each cell = small heading + list of links.",
+    "model": "columns: columns, rows"
+  },
+  "usage": "Equal columns separated by vertical dividers, each with a small heading followed by a list of links.",
+  "reuseGuidance": "Use for documentation or resource link directories. Put each link in its own paragraph or list item. Use columns for image/text layouts."
+}

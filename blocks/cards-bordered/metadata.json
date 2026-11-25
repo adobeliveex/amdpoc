@@ -1,0 +1,22 @@
+{
+  "variantName": "cards-bordered",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "White cards with thin grey border and soft shadow; optional image on top (product shot on black), linked bold title (optional arrow), small description, optional blue chevron CTA; 2/3/4-up grid by item count.",
+  "contentPattern": "One row per card; empty image cell kept for text-only cards.",
+  "options": [],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.amd.com/en/developer.html",
+  "structure": {
+    "rows": [
+      [
+        "Image (may be empty)",
+        "Text: title (heading/linked), description, CTA link"
+      ]
+    ],
+    "note": "One row per card; empty image cell kept for text-only cards.",
+    "model": "cards > card: image, text"
+  },
+  "usage": "Grid of white bordered cards with optional top image, linked title, short description and optional CTA link. Grid adapts 2/3/4-up from card count.",
+  "reuseGuidance": "Use for resource/tool listings. Leave the image cell empty for text-only cards. Use plain cards for unbordered image tiles."
+}
