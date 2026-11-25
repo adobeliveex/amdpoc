@@ -2,7 +2,7 @@
   "status": "success",
   "url": "https://www.amd.com/en/developer.html",
   "path": "en/developer",
-  "timestamp": "2026-11-25T17:10:02.918Z",
+  "timestamp": "2026-11-25T22:33:33.229Z",
   "title": "Developer Central",
   "template": "developer",
   "blocks": [
@@ -14,5 +14,5 @@
     "cards-bordered",
     "columns-link-lists"
   ],
-  "importScript": "dbe9533b048a"
+  "importScript": "0b08e274e01f"
 }

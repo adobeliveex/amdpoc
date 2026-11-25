@@ -22,9 +22,10 @@
     "description": "Short full-width page-intro banner with a background photo, H1 title and one-line subheading; optional CTA.",
     "pagesUsing": [
       "/en/developer",
-      "/en/support/download/drivers"
+      "/en/support/download/drivers",
+      "/en/support/downloads/drivers/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d"
     ],
-    "reuseCount": 1,
+    "reuseCount": 2,
     "lastUsed": "2026-11-25"
   },
   "reuseGuidance": "Use at the top of landing/hub pages. For tall marketing heroes with large media or multiple CTAs, use hero instead."

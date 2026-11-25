@@ -104,8 +104,12 @@ export function decorateButtons(element) {
     if (a.href !== a.textContent) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
+      // Opt-in buttons in default content: only **bold** (primary) or _italic_ (secondary) lone
+      // links become buttons there; plain lone links stay links. Inside blocks (main > div > div)
+      // lone links are still decorated, as blocks rely on it.
+      const inBlock = !!a.closest('main > div > div');
       if (!a.querySelector('img')) {
-        if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
+        if (inBlock && up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
           a.className = 'button'; // default
           up.classList.add('button-container');
         }
@@ -170,16 +174,30 @@ function decorateAnchorBars(main) {
       ticking = false;
       const offset = section.getBoundingClientRect().bottom + 40;
       let current = null;
-      targets.forEach((t) => { if (t.el.getBoundingClientRect().top <= offset) current = t; });
+      targets.forEach((t) => {
+        // sections still loading are hidden (no layout box): ignore them
+        if (t.el.getClientRects().length && t.el.getBoundingClientRect().top <= offset) current = t;
+      });
+      // a last target too close to the page end to reach the bar: active at the bottom
+      const last = targets[targets.length - 1];
+      const atBottom = window.scrollY > 0
+        && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom && last && last.el.getClientRects().length
+        && last.el.getBoundingClientRect().top < window.innerHeight) current = last;
+      // as on the source, nothing is highlighted before the page is scrolled
+      if (window.scrollY <= 0) current = null;
       targets.forEach((t) => t.a.classList.toggle('active', t === current));
     };
-    window.addEventListener('scroll', () => {
+    const schedule = () => {
       if (!ticking) {
         ticking = true;
         window.requestAnimationFrame(update);
       }
-    }, { passive: true });
-    update();
+    };
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+    // re-evaluate as sections load and the page layout settles
+    new ResizeObserver(schedule).observe(main);
   });
 }
 

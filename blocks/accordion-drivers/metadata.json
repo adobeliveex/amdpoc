@@ -1,0 +1,28 @@
+{
+  "variantName": "accordion-drivers",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Boxed single-open accordion of OS releases (all collapsed initially); each panel groups driver entries under H3 category headings; each entry is a grey card with the driver name, Revision Number / File Size / Release Date label-value columns, an outlined Download button with a download icon, and a nested collapsible Driver Details area.",
+  "contentPattern": "One item per OS: summary = OS label, text = rich text. In the text, H3 = category, H4 = driver name, paragraphs starting with a bold label = metadata lines (value may be empty), a paragraph containing only a link = Download button, all content after that link up to the next H3/H4 = Driver Details (description + release-notes links). Bodies without an H4 render as authored.",
+  "options": [],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d.html",
+  "structure": {
+    "rows": [
+      [
+        "Summary: OS label",
+        "Text: H3 category / H4 driver / bold-label meta paragraphs / lone Download link / details"
+      ]
+    ],
+    "model": "accordion-drivers > accordion-drivers-item: summary, text"
+  },
+  "usage": {
+    "description": "Per-OS driver download listing on product driver pages; single-open accordion with driver cards and nested Driver Details toggles.",
+    "pagesUsing": [
+      "/en/support/downloads/drivers/graphics/radeon-ai-pro/radeon-ai-pro-r9000-series/amd-radeon-ai-pro-r9600d"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-25"
+  },
+  "reuseGuidance": "Use for driver/software download lists grouped by OS. For plain FAQ-style expand/collapse use the base accordion; for spec tables use accordion-specs. The Driver Details toggle label can be overridden with the placeholder key \"driver-details\"."
+}

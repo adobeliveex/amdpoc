@@ -33,6 +33,34 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Dark Gradient (anchor bar)",
+              "value": "dark-gradient"
+            },
+            {
+              "name": "Centered",
+              "value": "centered"
+            },
+            {
+              "name": "Split",
+              "value": "split"
+            },
+            {
+              "name": "Split Reverse",
+              "value": "split-reverse"
+            },
+            {
+              "name": "Light Grey",
+              "value": "light-grey"
+            },
+            {
+              "name": "Weave Background",
+              "value": "weave"
+            },
+            {
+              "name": "Compact Spacing",
+              "value": "compact"
             }
           ]
         }
@@ -59,7 +87,16 @@
         "table",
         "text",
         "title",
-        "video"
+        "video",
+        "hero-banner",
+        "cards-bordered",
+        "columns-link-lists",
+        "columns-download",
+        "columns-link-panels",
+        "driver-selector",
+        "accordion-drivers",
+        "accordion-specs",
+        "note"
       ]
     }
   ]

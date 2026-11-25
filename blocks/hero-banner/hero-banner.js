@@ -77,6 +77,11 @@ export default function decorate(block) {
   if (contentRow) {
     contentRow.classList.add('hero-banner-content');
     decorateBreadcrumb(contentRow);
+    // a title-only text cell (optionally led by a breadcrumb trail) renders the
+    // compact banner; any supporting copy or CTA keeps the tall expressive look
+    const hasCopy = [...contentRow.querySelectorAll('p, ul, ol')]
+      .some((el) => !el.closest('.hero-banner-breadcrumb') && el.textContent.trim());
+    if (!hasCopy) block.classList.add('hero-banner-compact');
     contentRow.querySelectorAll('a').forEach((a) => {
       const p = a.closest('p');
       if (p && p.textContent.trim() === a.textContent.trim()) {

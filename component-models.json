@@ -136,8 +136,76 @@
           {
             "name": "Highlight",
             "value": "highlight"
+          },
+          {
+            "name": "Dark Gradient (anchor bar)",
+            "value": "dark-gradient"
+          },
+          {
+            "name": "Centered",
+            "value": "centered"
+          },
+          {
+            "name": "Split",
+            "value": "split"
+          },
+          {
+            "name": "Split Reverse",
+            "value": "split-reverse"
+          },
+          {
+            "name": "Light Grey",
+            "value": "light-grey"
+          },
+          {
+            "name": "Weave Background",
+            "value": "weave"
+          },
+          {
+            "name": "Compact Spacing",
+            "value": "compact"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "accordion-drivers-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "summary",
+        "value": "",
+        "label": "Operating System"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string",
+        "description": "H3 = category; H4 = driver name; \"Label value\" paragraphs with a bold label = Revision Number / File Size / Release Date; a paragraph holding only a link = Download button; everything after it up to the next H3/H4 = Driver Details."
+      }
+    ]
+  },
+  {
+    "id": "accordion-specs-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "summary",
+        "value": "",
+        "label": "Group Title"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string",
+        "description": "One list item (or paragraph) per spec: bold label followed by the value."
       }
     ]
   },
@@ -495,6 +563,31 @@
         "component": "text",
         "name": "linkText",
         "label": "Text"
+      }
+    ]
+  },
+  {
+    "id": "note",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "information",
+        "label": "Type",
+        "description": "Note type; selects the icon. Information is the default.",
+        "options": [
+          {
+            "name": "Information (default)",
+            "value": "information"
+          }
+        ]
       }
     ]
   },

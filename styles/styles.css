@@ -130,7 +130,7 @@ button {
 /* links */
 a:any-link {
   color: var(--link-color);
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
   overflow-wrap: break-word;
 }
@@ -162,7 +162,8 @@ main .default-content-wrapper .button-container {
   margin: 0 0 26px;
 }
 
-main .default-content-wrapper p + .button-container {
+/* the outline (italic) button sits further below preceding text on the source; solid keeps 26px */
+main .default-content-wrapper p + .button-container:has(> em) {
   margin-top: 47px;
 }
 
@@ -188,7 +189,7 @@ button {
   white-space: normal;
 }
 
-main .default-content-wrapper a.button::after {
+main .default-content-wrapper a.button.secondary::after {
   content: '';
   display: inline-block;
   width: 7px;
@@ -207,6 +208,20 @@ button:focus {
   border-color: var(--text-color);
   color: var(--background-color);
   text-decoration: none;
+}
+
+/* AMD solid black button (authored bold): no chevron, inverts on hover */
+main .default-content-wrapper a.button.primary:any-link {
+  border-color: var(--background-color);
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+main .default-content-wrapper a.button.primary:hover,
+main .default-content-wrapper a.button.primary:focus {
+  border-color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 button:disabled,
@@ -271,6 +286,17 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* compact: 26px section top and bottom spacing (AMD product driver pages) */
+main > .section.compact {
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+
+/* EULA note under the driver list: the source opens it with a 24px line break */
+main .accordion-drivers-wrapper + .default-content-wrapper {
+  margin-top: 24px;
 }
 
 /* light-grey: AMD #f1f1f2 bands with 56px inner padding (drivers page) */

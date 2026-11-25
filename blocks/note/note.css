@@ -1,0 +1,53 @@
+/* Note block - source: AMD .cmp-toast (.cmp-toast--container.toast-information) */
+.note {
+  margin: 0 0 16px;
+}
+
+.note .note-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background-color: #f1f1f2;
+  border: 1px solid #e1e1e2;
+  border-left: 3px solid #008094;
+  border-radius: 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-color);
+}
+
+/* circle-info glyph: 17.5px (fa-lg at 14px), ~2px below the text top, #008094 */
+.note .note-icon {
+  flex: 0 0 auto;
+  width: 17.5px;
+  height: 17.5px;
+  margin-top: 1px;
+  color: #008094;
+  background-color: currentcolor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.note .note-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.note .note-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.note .note-text > * + * {
+  margin-top: 8px;
+}
+
+/* type: information (default) - Font Awesome Sharp Solid circle-info */
+.note.information .note-icon {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm-40-176h24v-64h-48v-48h96v112h24v48H192v-48h24zm72-144h-64v-64h64v64z'/%3E%3C/svg%3E");
+}
