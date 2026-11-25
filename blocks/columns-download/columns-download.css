@@ -1,0 +1,137 @@
+/*
+ * columns-download: two download panels (Windows / Linux) on the light-grey band.
+ * Values measured on amd.com/en/support/download/drivers.html (375 / 768 / 1280 / 1440 / 1600).
+ * Source type scales fluidly with the viewport between fixed min/max values.
+ */
+
+/* source "divider" spacer above the panels: 32px mobile, 52px from 768px */
+.columns-download {
+  padding-top: 32px;
+}
+
+.columns-download > .columns-download-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-download .columns-download-col {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.columns-download .columns-download-col > :first-child {
+  margin-top: 0;
+}
+
+.columns-download .columns-download-col p {
+  margin-top: 0;
+  margin-bottom: 26px;
+}
+
+.columns-download .columns-download-col h2 {
+  margin: 0 0 16px;
+  font-size: clamp(22.4px, calc(18.8px + 0.625vw), 28.8px);
+  font-weight: 700;
+  line-height: clamp(33.6px, calc(30.256px + 0.582vw), 38.4px);
+  color: #000;
+}
+
+/* subheadline: first paragraph after the heading */
+.columns-download .columns-download-col > h2 + p:not(.columns-download-action) {
+  margin-bottom: 26px;
+  font-size: clamp(17.28px, calc(15.568px + 0.297vw), 20.32px);
+  font-weight: 500;
+  line-height: clamp(26px, calc(22.64px + 0.585vw), 32px);
+}
+
+/* inline "Learn more" link */
+.columns-download .columns-download-col p:not(.columns-download-action) a:any-link {
+  color: var(--link-color);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.columns-download .columns-download-col p:not(.columns-download-action) a:hover,
+.columns-download .columns-download-col p:not(.columns-download-action) a:focus {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.columns-download .columns-download-col img {
+  display: block;
+  width: 100%;
+}
+
+/* button container sits at the bottom of each panel so buttons align across panels */
+main .columns-download .columns-download-action {
+  display: flex;
+  margin: auto 0 26px;
+  border: 1px solid transparent;
+  padding: 0;
+}
+
+main .columns-download a.button:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  margin: 0;
+  border: 1px solid #000;
+  border-radius: 2px;
+  padding: 16px 34px;
+  background-color: transparent;
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: clamp(14px, calc(12.576px + 0.238vw), 16px);
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  cursor: pointer;
+}
+
+main .columns-download a.button:hover,
+main .columns-download a.button:focus {
+  border-color: #000;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Font Awesome download glyph: 1em wide, one word space + fluid padding (0 → 10px) after the label */
+.columns-download .columns-download-icon {
+  display: inline-block;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  margin-left: calc(0.26em + clamp(0px, calc(1.19vw - 7.136px), 10px));
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32v242.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64v-32c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+@media (width >= 768px) {
+  .columns-download {
+    padding-top: 52px;
+  }
+
+  /* source bootstrap row: -17px gutters, col-md-6 + col-md-5 (remaining 1/12 empty) */
+  .columns-download > .columns-download-row {
+    flex-flow: row nowrap;
+    align-items: stretch;
+    margin: 0 -17px;
+  }
+
+  .columns-download .columns-download-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 17px;
+  }
+
+  .columns-download .columns-download-col + .columns-download-col {
+    flex-basis: 41.6667%;
+    max-width: 41.6667%;
+  }
+}

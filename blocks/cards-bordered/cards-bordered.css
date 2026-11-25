@@ -25,15 +25,20 @@
   transition: border-color 0.2s;
 }
 
-.cards-bordered > ul > li:hover,
-.cards-bordered > ul > li:has(a:focus-visible) {
-  border-color: var(--accent-color);
-  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 24%);
-}
-
 /* whole card activates its primary link (see cards-bordered.js) */
 .cards-bordered > ul > li.cards-bordered-linked {
   cursor: pointer;
+}
+
+.cards-bordered > ul > li:hover,
+.cards-bordered > ul > li:has(a:focus-visible) {
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 24%);
+}
+
+/* accent border only on whole-card-clickable cards (source .card.has-link) */
+.cards-bordered > ul > li.cards-bordered-linked:hover,
+.cards-bordered > ul > li.cards-bordered-linked:has(a:focus-visible) {
+  border-color: var(--accent-color);
 }
 
 /* image */
@@ -98,6 +103,11 @@
   margin: 0;
 }
 
+/* stacked CTA links sit at the card bottom (source .card-links) */
+.cards-bordered .cards-bordered-card-body > :not(.cards-bordered-cta) + p.cards-bordered-cta {
+  margin-top: auto;
+}
+
 main .cards-bordered .cards-bordered-cta a.button:any-link,
 main .cards-bordered .cards-bordered-cta a:any-link {
   display: block;
@@ -154,7 +164,9 @@ main .cards-bordered .cards-bordered-cta a:hover {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* image cards run 4-up; text-only sets of four stay 2x2 */
+  /* image cards and link-list cards (heading + links) run 4-up;
+     text-only sets of four with descriptions stay 2x2 */
+  .cards-bordered.cards-bordered-4-up:not(.cards-bordered-thirds, :has(> ul > li:not(.cards-bordered-links-only))) > ul,
   .cards-bordered.cards-bordered-4-up:not(.cards-bordered-thirds):has(.cards-bordered-card-image) > ul {
     grid-template-columns: repeat(4, 1fr);
   }

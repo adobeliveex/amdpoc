@@ -205,8 +205,38 @@
           }
         },
         {
+          "title": "Columns Download",
+          "id": "columns-download",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Columns Link Lists",
           "id": "columns-link-lists",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Columns Link Panels",
+          "id": "columns-link-panels",
           "plugins": {
             "xwalk": {
               "page": {
@@ -229,6 +259,30 @@
                 "template": {
                   "columns": "2",
                   "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Driver Selector",
+          "id": "driver-selector",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Driver Selector",
+                  "model": "driver-selector",
+                  "dataSource": "/data/amd-driver-products.json",
+                  "searchPlaceholder": "Search for your AMD product",
+                  "searchLabel": "Search",
+                  "browseLabel": "Browse Products",
+                  "familyLabel": "Product Family",
+                  "lineLabel": "Product Line",
+                  "modelLabel": "Product Model",
+                  "submitLabel": "Submit",
+                  "validationMessage": "Please select a valid product from the list"
                 }
               }
             }

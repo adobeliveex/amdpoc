@@ -68,7 +68,7 @@ const PAGE_TEMPLATE = {
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(1)",
         "#container-405663470e"
       ],
-      "style": "centered",
+      "style": "centered, weave",
       "blocks": [],
       "defaultContent": [
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(1) .cmp-text"
@@ -80,7 +80,7 @@ const PAGE_TEMPLATE = {
       "selector": [
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(2) .container-padding-none .container-lg > .aem-Grid > div:nth-child(-n+3)"
       ],
-      "style": null,
+      "style": "weave",
       "blocks": [
         "cards-bordered"
       ],
@@ -94,7 +94,7 @@ const PAGE_TEMPLATE = {
       "selector": [
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(2) .container-padding-none .container-lg > .aem-Grid > div:nth-child(5)"
       ],
-      "style": "split",
+      "style": "split, weave",
       "blocks": [
         "cards-bordered"
       ],
@@ -109,7 +109,7 @@ const PAGE_TEMPLATE = {
       "selector": [
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(2) .container-padding-none .container-lg > .aem-Grid > div:nth-child(7)"
       ],
-      "style": "split-reverse",
+      "style": "split-reverse, weave",
       "blocks": [
         "cards-bordered"
       ],
@@ -125,7 +125,7 @@ const PAGE_TEMPLATE = {
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(3)",
         "#container-0c8cad2443"
       ],
-      "style": null,
+      "style": "weave",
       "blocks": [
         "columns-link-lists"
       ],
@@ -140,7 +140,7 @@ const PAGE_TEMPLATE = {
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(4)",
         "#container-81e8bc4012"
       ],
-      "style": null,
+      "style": "weave",
       "blocks": [
         "cards-bordered"
       ],
@@ -155,7 +155,7 @@ const PAGE_TEMPLATE = {
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(5)",
         "#container-049bc227c1"
       ],
-      "style": "centered",
+      "style": "centered, weave",
       "blocks": [],
       "defaultContent": [
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(5) > .cmp-container > .cmp-container__content"
@@ -168,7 +168,7 @@ const PAGE_TEMPLATE = {
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(6)",
         "#container-b54a7fd261"
       ],
-      "style": "centered",
+      "style": "centered, weave",
       "blocks": [],
       "defaultContent": [
         ".fixed-parallax > .cmp-container > .cmp-container__content > .aem-Grid > .container-parsys:nth-child(6) > .cmp-container > .cmp-container__content"

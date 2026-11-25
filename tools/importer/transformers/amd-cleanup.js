@@ -48,7 +48,8 @@ export default function transform(hookName, element, payload) {
       '#feedback-container',
       '.feedback-button-wrapper',
       'amd-modal.amd-modal-feedback',
-      // UserWay accessibility widget and reading guides
+      // UserWay accessibility widget, skip-links bar and reading guides
+      '.uw-sl',
       '.uwy',
       '.userway_buttons_wrapper',
       '[class*="uw-s10-"]',
@@ -66,6 +67,17 @@ export default function transform(hookName, element, payload) {
 
     // Decorative "weave" background behind the developer-tools band (styling, not content)
     element.querySelectorAll('.fixed-parallax > .cmp-container > .cmp-container__image').forEach((el) => el.remove());
+
+    // Decorative gradient divider images (e.g. pearl-to-white / white-pearl strips between
+    // sections). Matched by DAM path so real content images are never affected; the whole
+    // AEM image component is removed so no empty wrapper is left behind.
+    element.querySelectorAll('img, source').forEach((node) => {
+      const urls = [node.getAttribute('src'), node.getAttribute('srcset'), node.getAttribute('data-src')]
+        .filter(Boolean).join(' ');
+      if (!/\/backgrounds\/dividers\/|gradient-divider\./i.test(urls)) return;
+      const component = node.closest('.image.aem-GridColumn') || node.closest('.cmp-image') || node.closest('picture') || node;
+      component.remove();
+    });
 
     // Empty experience fragment wrappers (left after removals or empty on capture)
     element.querySelectorAll('.experiencefragment').forEach((xf) => {
@@ -87,6 +99,12 @@ export default function transform(hookName, element, payload) {
       'iframe.ot-text-resize',
       'iframe.amd-feedback-iframe',
     ]);
+
+    // Empty spacer divider components (div.divider). Removed after parsing so that
+    // nth-child-based section/block selectors still see the original sibling order.
+    element.querySelectorAll('div.divider').forEach((el) => {
+      if (el.isConnected && isEmptyElement(el)) el.remove();
+    });
 
     // Strip tracking / runtime attributes
     element.querySelectorAll('*').forEach((el) => {

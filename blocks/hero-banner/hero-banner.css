@@ -150,3 +150,121 @@ main > .section > .hero-banner-wrapper {
     width: calc(50% - 17px);
   }
 }
+
+/* Breadcrumb hero (values measured on https://www.amd.com/en/support/download/drivers.html):
+   when the text cell starts with a breadcrumb trail the source renders a compact
+   heroBasic banner - content-height, no gradient overlay, full-width title */
+.hero-banner:has(.hero-banner-breadcrumb)::before {
+  content: none;
+}
+
+.hero-banner:has(.hero-banner-breadcrumb) > .hero-banner-media {
+  bottom: 0;
+}
+
+.hero-banner:has(.hero-banner-breadcrumb) > .hero-banner-media::after {
+  content: none;
+}
+
+.hero-banner:has(.hero-banner-breadcrumb) > .hero-banner-media img {
+  object-position: 50% 50%;
+}
+
+.hero-banner:has(.hero-banner-breadcrumb) > .hero-banner-content {
+  display: block;
+  min-height: 0;
+  padding: 26px;
+}
+
+.hero-banner:has(.hero-banner-breadcrumb) > .hero-banner-content > div {
+  width: 100%;
+}
+
+.hero-banner:has(.hero-banner-breadcrumb) > .hero-banner-content h1 {
+  margin: 0;
+}
+
+.hero-banner .hero-banner-breadcrumb {
+  padding: 0 0 16px;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.hero-banner .hero-banner-breadcrumb > ul,
+.hero-banner .hero-banner-breadcrumb > ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-banner .hero-banner-breadcrumb li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgb(116 117 121);
+}
+
+.hero-banner .hero-banner-breadcrumb li[aria-current='page'] {
+  font-weight: 600;
+}
+
+/* chevron separator (Font Awesome sharp-solid chevron-right, 12px):
+   source box is 15.5px wide (7.5px glyph + 4px padding each side) */
+.hero-banner .hero-banner-breadcrumb li + li::before {
+  content: '';
+  display: inline-block;
+  box-sizing: border-box;
+  width: 15.5px;
+  height: 12px;
+  margin-right: 3.125px; /* source: collapsed whitespace (Open Sans 12px space) before the link */
+  padding: 0 4px;
+  vertical-align: -1.5px;
+  background-color: currentcolor;
+  background-clip: content-box;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M317.3 256l-22.6 22.6-192 192L80 493.3 34.7 448l22.6-22.6L226.7 256 57.4 86.6 34.7 64 80 18.7l22.6 22.6 192 192L317.3 256z'/%3E%3C/svg%3E") content-box center / 7.5px 12px no-repeat;
+}
+
+.hero-banner .hero-banner-breadcrumb a:any-link {
+  font-weight: 400;
+  color: rgb(116 117 121);
+  text-decoration: none;
+}
+
+.hero-banner .hero-banner-breadcrumb a:hover {
+  color: rgb(157 159 162);
+  text-decoration: underline;
+}
+
+/* home crumb: house icon (Font Awesome sharp-solid house, 12px) */
+.hero-banner .hero-banner-breadcrumb a.hero-banner-breadcrumb-home::before {
+  content: '';
+  display: inline-block;
+  width: 13.5px;
+  height: 12px;
+  vertical-align: -1.5px;
+  background-color: currentcolor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath d='M288 0L576 256V288H512V512H352V352H224V512H64V288H0V256L288 0Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+}
+
+.hero-banner .hero-banner-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (width >= 992px) {
+  .hero-banner:has(.hero-banner-breadcrumb) > .hero-banner-content {
+    padding-right: 90px;
+    padding-left: 90px;
+  }
+}

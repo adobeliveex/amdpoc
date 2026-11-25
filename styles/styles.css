@@ -239,8 +239,8 @@ main > .section {
   padding-top: var(--section-spacing);
 }
 
-/* source decorative "weave" image fixed behind the content bands below the anchor bar */
-main > .section:where(.dark-gradient ~ .section) {
+/* weave: source decorative image fixed behind the developer page's content bands */
+main > .section:where(.weave) {
   background: url('images/large-weave-mid-gradient-top.avif') center top / cover no-repeat fixed;
 }
 
@@ -271,6 +271,29 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* light-grey: AMD #f1f1f2 bands with 56px inner padding (drivers page) */
+main .section.light-grey {
+  padding-bottom: var(--section-spacing);
+  background-color: #f1f1f2;
+}
+
+/* soft transitions around light-grey bands (source: 38px pearl/white gradient divider strips) */
+main > .section.light-grey + .section:not(.light-grey, .dark-gradient) {
+  padding-top: 65px;
+  background: linear-gradient(#f1f1f2, #fff) top / 100% 38px no-repeat;
+}
+
+main > .section:not(.light-grey, .dark-gradient):has(+ .section.light-grey) {
+  padding-bottom: 90px;
+  background: linear-gradient(#fff, #f1f1f2) bottom / 100% 38px no-repeat;
+}
+
+main > .section.light-grey + .section:not(.light-grey, .dark-gradient):has(+ .section.light-grey) {
+  background:
+    linear-gradient(#f1f1f2, #fff) top / 100% 38px no-repeat,
+    linear-gradient(#fff, #f1f1f2) bottom / 100% 38px no-repeat;
 }
 
 /* centered: headings, text and buttons centered */

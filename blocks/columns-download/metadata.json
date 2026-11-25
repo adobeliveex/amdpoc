@@ -1,0 +1,29 @@
+{
+  "variantName": "columns-download",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Two (fixed, non-wrapping) download panels side by side on light-grey: H2, bold subheadline, body copy with inline link, outlined black button with download icon. Keeps columns content model (one row, one cell per panel).",
+  "contentPattern": "One row, one cell per column; additional rows must keep the same cell count. Each cell: H2 heading, subheadline paragraph, description with optional inline link, and a standalone link paragraph that becomes the download button.",
+  "options": [],
+  "memberVariantIds": [],
+  "sourceUrl": "https://www.amd.com/en/support/download/drivers.html",
+  "structure": {
+    "rows": [
+      [
+        "Column 1 content",
+        "Column 2 content"
+      ]
+    ],
+    "note": "One row, one cell per column; additional rows must keep the same cell count.",
+    "model": "columns: columns, rows"
+  },
+  "usage": {
+    "description": "Side-by-side download panels, each with a heading, subheadline, description and a download button.",
+    "pagesUsing": [
+      "/en/support/download/drivers"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-25"
+  },
+  "reuseGuidance": "Use for two or three parallel download or call-to-action panels (e.g. Windows vs Linux). Put the download link in its own paragraph so it renders as the button. Use columns for image/text layouts and columns-link-panels for link lists."
+}

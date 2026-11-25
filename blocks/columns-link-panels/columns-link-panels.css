@@ -1,0 +1,77 @@
+/* columns-link-panels: flat white panels, each a heading + stacked list of plain links.
+ * Values from amd.com drivers page "More Resources" (.columns.amd-flex-align-stretch-bg). */
+
+/* source follows the panels with an empty divider: 2 x 1rem (32px) mobile, 2 x 1.625rem (52px) >= 768px */
+.columns-link-panels {
+  margin-bottom: 32px;
+}
+
+/* mobile: panels stack with no gap, reading as one continuous white column */
+.columns-link-panels > .columns-link-panels-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.columns-link-panels .columns-link-panels-col {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 26px 34px;
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.columns-link-panels .columns-link-panels-col > :first-child {
+  margin-top: 0;
+}
+
+/* fluid h5: 18.4px (375) / 19.72px (1280) / 20.02px (1440) */
+.columns-link-panels .columns-link-panels-col h5 {
+  margin: 0 0 16px;
+  color: #000;
+  font-size: max(18.4px, calc(17.328px + 0.187vw));
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.columns-link-panels .columns-link-panels-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* each link sits in its own 24px line with 26px below (last margin kept inside the panel) */
+.columns-link-panels .columns-link-panels-list > li {
+  margin: 0 0 26px;
+}
+
+.columns-link-panels .columns-link-panels-col a:any-link {
+  color: var(--link-color);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.columns-link-panels .columns-link-panels-col a:hover,
+.columns-link-panels .columns-link-panels-col a:focus-visible {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+/* two equal-height panels side by side from the source col-md (768px) breakpoint */
+@media (width >= 768px) {
+  .columns-link-panels {
+    margin-bottom: 52px;
+  }
+
+  .columns-link-panels > .columns-link-panels-row {
+    flex-flow: row nowrap;
+    align-items: stretch;
+    gap: 34px;
+  }
+
+  .columns-link-panels .columns-link-panels-col {
+    flex: 1 1 0;
+  }
+}

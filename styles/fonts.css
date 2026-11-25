@@ -1,8 +1,9 @@
 /* AMD body and heading font: Open Sans (source self-hosts the same family; served here from Google Fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Saira+Semi+Condensed:wght@500&display=swap');
 
 /*
  * The source hero H1 uses Klavika, an AMD-licensed font that cannot be embedded here.
- * --display-font-family lists klavika first so it is used only if installed locally,
- * then falls back to Open Sans.
+ * --display-font-family lists klavika first (used only if installed locally), then
+ * Saira Semi Condensed, the closest free match in width and letterforms (823px vs Klavika 834px
+ * for the drivers H1 at 41.6px), then Open Sans.
  */

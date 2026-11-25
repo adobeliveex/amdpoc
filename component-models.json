@@ -237,7 +237,45 @@
     ]
   },
   {
+    "id": "columns-download",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
     "id": "columns-link-lists",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "columns-link-panels",
     "fields": [
       {
         "component": "text",
@@ -271,6 +309,74 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      }
+    ]
+  },
+  {
+    "id": "driver-selector",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "dataSource",
+        "value": "/data/amd-driver-products.json",
+        "label": "Product data file (JSON URL)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "searchPlaceholder",
+        "value": "",
+        "label": "Search placeholder"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "searchLabel",
+        "value": "",
+        "label": "Search button label"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "browseLabel",
+        "value": "",
+        "label": "Level 1 label (Browse Products)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "familyLabel",
+        "value": "",
+        "label": "Level 2 label (Product Family)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "lineLabel",
+        "value": "",
+        "label": "Level 3 label (Product Line)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "modelLabel",
+        "value": "",
+        "label": "Level 4 label (Product Model)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "submitLabel",
+        "value": "",
+        "label": "Submit button label"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "validationMessage",
+        "value": "",
+        "label": "Validation message"
       }
     ]
   },
